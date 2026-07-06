@@ -1,0 +1,26 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Bright pink near the top-center fading to a blue-violet at the corners,
+         matching the reference icon. -->
+    <radialGradient id="bg" cx="50%" cy="18%" r="95%">
+      <stop offset="0%" stop-color="#E98BDA" />
+      <stop offset="42%" stop-color="#C06FD8" />
+      <stop offset="78%" stop-color="#8E6FD6" />
+      <stop offset="100%" stop-color="#7B76D4" />
+    </radialGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.10" />
+      <stop offset="35%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded-square (iOS-style) background -->
+  <rect x="0" y="0" width="512" height="512" rx="115" ry="115" fill="url(#bg)" />
+  <rect x="0" y="0" width="512" height="512" rx="115" ry="115" fill="url(#sheen)" />
+
+  <!-- Code brackets < > in white with soft rounded joints -->
+  <g fill="none" stroke="#ffffff" stroke-width="42" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="214,182 146,256 214,330" />
+    <polyline points="298,182 366,256 298,330" />
+  </g>
+</svg>

@@ -86,6 +86,22 @@ export function startRawEncode({
         // archival masters, so the extra compression effort isn't worth it.
         '-preset',
         'veryfast',
+        // High profile + explicit level and no B-frames: Premiere Pro's
+        // Windows decoder is known to mis-decode/duplicate frames on some
+        // B-frame-reordered H.264 streams (symptom: "error retrieving frame N,
+        // replacing with frame N-1" on a regular pattern of frames). Piped
+        // rawvideo input has no real timestamps of its own, which makes that
+        // reordering more fragile than a normal capture — disabling B-frames
+        // removes the reordering entirely, at a negligible size cost for
+        // clips this short.
+        '-profile:v',
+        'high',
+        '-level',
+        '4.1',
+        '-bf',
+        '0',
+        '-g',
+        String(fps),
         '-movflags',
         '+faststart',
         '-r',
